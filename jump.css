@@ -1,0 +1,484 @@
+/*
+
+
+Kiwi Drop - foolishly constructed at Railscamp NZ 2: Feb 10-12, 2012
+
+
+Scott Harvey, Simon Wright, Tim Lucas
+with bonus mobile-safari awesomeness courtesy Nathan de Vries
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Fear the LOLbomb!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  ____________________
+  \   * |      | *   /
+   \  * |      | *  /
+    \ * |    # | * /
+     \  | #### |  /
+      \ |      | /
+       \| #### |/
+        | #  # |
+        | #### |
+        |      |
+        |    # |
+        | #### |
+        |      |
+        \      /
+         \    /
+          \  /
+           --
+
+
+
+
+
+
+
+
+
+*/
+
+
+
+
+
+
+
+body, html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: #0a101c url(img/nightsky-tall.png) scroll repeat-x 50% 0;
+  -webkit-transform: translateZ(0);
+}
+
+body {
+  background: url(img/moon.png) scroll no-repeat 90% 10%;
+}
+
+html.gotime {
+  -webkit-animation-name: skyload; 
+  -webkit-animation-duration: 6s; 
+  -webkit-animation-iteration-count: 1; 
+  -webkit-animation-timing-function: ease-in; 
+  background-position: 0 -1600px;
+  background-color: #81b4e4;
+}
+
+html.gotime body {
+  -webkit-animation-name: moonmove; 
+  -webkit-animation-duration: 3s; 
+  -webkit-animation-iteration-count: 1; 
+  -webkit-animation-timing-function: ease-in; 
+  background-position: 90% -20%;
+}
+
+@-webkit-keyframes skyload { 
+0% { background-position: 50% 0; } 
+100% { background-position: 50% -1600px; } 
+} 
+
+@-webkit-keyframes moonmove { 
+0% { background-position: 90% 10%; } 
+100% { background-position: 90% -15%; } 
+} 
+
+
+@font-face {
+  font-family: 'Uni05_53';
+    src: url("img/font/uni05_53.ttf");
+}
+
+@font-face {
+  font-family: 'Uni05_63';
+    src: url("img/font/uni05_63.ttf");
+}
+
+
+
+#intro {
+  width: 70%;
+  margin: 40px auto 0 auto;
+  color: #fff;
+  font: 200 18px uni05_53, Helvetica;
+  text-align: center;
+  -webkit-transition: opacity 1s ease-in;
+}
+
+
+#intro h1 {
+  text-transform: uppercase;
+  font-size: 78px;
+  line-height: 62px;
+  text-align: center;
+  margin: 20px 20% 0 20%;
+  font-family: "uni05_63";
+  text-shadow: 5px 5px 0 #243661;
+  text-shadow: 2px 2px 0 #0a101c;
+  opacity: 1;
+}
+
+.gotime #intro {
+  opacity: 0;
+  -webkit-transition: opacity 1s ease-in;
+}
+
+#intro h1 em {
+  font-family: "uni05_53";
+  font-style: normal;
+  font-size: 73px;
+}
+
+
+a#jump {
+  color: #fff;
+  background: #2e5e8b;
+  padding: 0.6em 1.5em;
+  font: 400 21px "uni05_53", Helvetica;
+  text-decoration: none;
+  display: inline-block;
+  margin: 40px 30% 0 30%;
+}
+
+a#jump:hover {
+  background-color: #dd9b29;
+  text-shadow: 2px 2px 0 #111;
+}
+
+
+#stars {
+  background: url(img/starfield.png) scroll repeat 0 0;
+  width: 1500px;
+  height: 1500px;
+  position: absolute;
+  opacity: 0.2;
+  z-index: -99;
+  -webkit-animation-name: allofthestars; 
+  -webkit-transition: all 11000ms;
+  -webkit-transform-origin: 40% 25%;
+  -webkit-animation-duration: 30s; 
+  -webkit-animation-iteration-count: 1000; 
+  -webkit-animation-timing-function: linear;
+}
+
+
+#stars.gotime {
+  opacity: 0;
+  top: -45%;
+  -webkit-transition: all 2.8s ease-in;
+}
+
+@-webkit-keyframes allofthestars { 
+0% { -webkit-transform: translateZ(0) rotate(0deg); }
+100%  { -webkit-transform: translateZ(0) rotate(360deg); }
+}
+
+
+#youreyes {
+  /* Why the name? Twas Scott's idea. And Lachlan laughed. */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  z-index: -100;
+ }
+
+
+
+#splat {
+  background: url(img/ubersprite.png) scroll no-repeat -470px -235px;
+  width: 244px;
+  height: 264px;
+  -webkit-transition: opacity 0.3s ease-in;
+  position: absolute;
+}
+
+#splat a {
+  color: blue;
+  font-size: 26px;
+  line-height: 62px;
+  text-align: center;
+  margin: -18px auto 0 auto;
+  display: block;
+  font-family: "uni05_63";
+  text-shadow: 5px 5px 0 #243661;
+  text-shadow: 2px 2px 0 #0a101c;
+  opacity: 1;
+  color: #fff;
+  text-decoration: none;
+}
+
+#splat a:hover {
+  color: #2E5E8B;
+}
+
+#splat p {
+  font-size: 65px;
+  line-height: 92px;
+  text-align: center;
+  margin: 100px auto 0 auto;
+  font-family: "uni05_63";
+  text-shadow: 5px 5px 0 #243661;
+  text-shadow: 2px 2px 0 #0a101c;
+  opacity: 1;
+  color: #fff;
+}
+
+
+
+#score {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-family: "uni05_63";
+  font-size: 18px;
+}
+
+#level {
+  position: absolute;
+  bottom: 30px;
+  left: 10px;
+  font-family: "uni05_53";
+  font-size: 18px;
+}
+
+
+
+
+/*  Double size  */
+
+.player {
+  background: url(img/ubersprite.png) scroll no-repeat -200px 0;
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  top: -700px;
+  left: 0;
+  z-index: 10;
+}
+
+.enemy {
+  background: url(img/ubersprite.png) scroll no-repeat -200px -200px;
+  height: 52px;
+  width: 64px;
+  position: absolute;
+  z-index: 9;
+}
+
+
+@-webkit-keyframes spinner { 
+0% { -webkit-transform: rotate(-90deg); }
+100%  { -webkit-transform: rotate(90deg); }
+}
+
+.type_4 {
+  background: url(img/ubersprite.png) scroll no-repeat -200px -300px;
+  height: 52px;
+  width: 64px;
+  position: absolute;
+  -webkit-transition: all 8500ms;
+  z-index: 9;
+}
+
+.type_3 {
+  background: url(img/sheep-anim.gif) scroll no-repeat 0 0;
+  height: 52px;
+  width: 72px;
+  position: absolute;
+  -webkit-transition: all 10500ms;
+  z-index: 9;
+}
+
+.type_1 {
+  background: url(img/ubersprite.png) scroll no-repeat -200px -100px;
+  height: 80px;
+  width: 48px;
+  position: absolute;
+  -webkit-transition: all 10000ms;
+  z-index: 9;
+  -webkit-animation-name: none; 
+}
+
+
+.cloud {
+  background: url(img/ubersprite.png) scroll no-repeat 0 0;
+  width: 100px;
+  position: absolute;
+  height: 100px;
+  top: -200px;
+  left: 0;
+  z-index: 0;
+  -webkit-transition: all 20s;
+  /* opacity: 0.6; */
+}
+
+.size_2 {
+  width: 100px;
+  height: 100px;
+  z-index: 15;
+  background-position: 0 -100px;
+  -webkit-transition: all 18s;
+  /* opacity: 0.3; */
+}
+
+
+.size_3 {
+  width: 100px;
+  height: 100px;
+  z-index: 15;
+  background-position: 0 -200px;
+  -webkit-transition: all 17s;
+  /* opacity: 0.75; */
+}
+
+
+.size_4 {
+  width: 200px;
+  height: 100px;
+  z-index: 15;
+  background-position: 0 -300px;
+  -webkit-transition: all 10s;
+ /*  opacity: 1; */
+}
+
+
+
+
+
+
+#comet {
+  background: url(img/ubersprite.png) scroll no-repeat -200px -400px;
+  width: 28px;
+  height: 34px;
+  position: absolute;
+
+  -webkit-animation-name: haley; 
+  -webkit-transform-origin: 0% 0%;
+  -webkit-animation-duration: 25.5s; 
+  -webkit-animation-iteration-count: 1000; 
+  -webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes haley { 
+0% { -webkit-transform: translateZ(0) translate(-200%, 1500%) rotate(-20deg); }
+40% { -webkit-transform: translateZ(0) translate(-200%, 1500%) rotate(-20deg); }
+50%  { -webkit-transform: translateZ(0) translate(1600%, -200%) rotate(40deg); }
+100%  { -webkit-transform: translateZ(0) translate(1600%, -200%) rotate(40deg); }
+}
+
+.gotime #comet {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+/* Media query for large screens, making ze pixels huger */
+
+@media screen and (min-width: 1024px) {
+
+.enemy {
+  -webkit-animation-name: spinner; 
+  -webkit-transition: all 10000ms;
+  -webkit-transform-origin: 190px -190px;
+  -webkit-animation-duration: 6s; 
+  -webkit-animation-iteration-count: 50; 
+  -webkit-animation-timing-function: linear; 
+}
+
+#intro {
+  font-size: 32px;
+  line-height: 40px;
+}
+
+#intro h1 {
+  font-size: 130px;
+  line-height: 102px;
+}
+
+#intro h1 em {
+  font-size: 120px;
+  line-height: 102px;
+}
+
+a#jump {
+  font-size: 34px;
+}
+
+
+}
+/* End of large screen media query */
+
+
+
+
+
+
+
+/* Media query for small screens (increases opacity of stars, so they're clearer)  */
+
+@media screen and (max-width: 1024px) {
+
+#stars {
+  opacity: 0.5;
+}
+
+
+
+}
+
+/* End of small screen media query */
